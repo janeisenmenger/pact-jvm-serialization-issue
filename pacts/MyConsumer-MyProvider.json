@@ -1,0 +1,41 @@
+{
+  "consumer": {
+    "name": "MyConsumer"
+  },
+  "messages": [
+    {
+      "contents": {
+        "payload": "my-payload"
+      },
+      "description": "a message",
+      "matchingRules": {
+        "metadata": {
+          "kafka_topic": {
+            "combine": "AND",
+            "matchers": [
+              {
+                "match": "regex",
+                "regex": "project-(production|validation)-stage-topic"
+              }
+            ]
+          }
+        }
+      },
+      "metaData": {
+        "contentType": "application/json",
+        "kafka_topic": "project-production-stage-topic"
+      }
+    }
+  ],
+  "metadata": {
+    "pact-jvm": {
+      "version": "4.3.0"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "MyProvider"
+  }
+}
